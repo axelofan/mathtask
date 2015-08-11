@@ -54,6 +54,8 @@ function replace (l) {
   while (acos.test(l)) l.match(acos).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace acos
   while (atan.test(l)) l.match(atan).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace atan
   while (math.test(l)) l.match(math).forEach(function(element) {l = l.replace(element,PHPround(eval(element),8)); l = l.replace(new RegExp(/--/g),'+'); l = l.replace(new RegExp(/\+-/g),'-');});
+  l = l.replace(new RegExp(/--/g),'+');
+  l = l.replace(new RegExp(/\+-/g),'-');
   return l;
 }
 
