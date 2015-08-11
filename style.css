@@ -1,0 +1,92 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext,latin);
+@media print {
+  #settings {
+    display:none;
+  }
+  #tasks tr {
+    display: block;
+    page-break-inside: avoid;
+  }
+  #background {
+    display:none;
+}
+}
+#settings{
+  margin:0 auto;
+  text-align:center;
+  font-family:"Open Sans";
+  font-size:24px;
+}
+#settings div {
+  display:inline-block;
+}
+input[type='text'] {
+  width: 30px;
+  height:24px;
+  font-family:"Open Sans";
+  font-size: 18px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s;
+  text-align: center;
+}
+input[type="text"]:focus {
+ box-shadow: 0 0 5px 1px #969696;
+}
+#tasks {
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0 auto;
+}
+#tasks td {
+  border: 1px solid black;
+}
+P {
+  margin:2px 0;
+}
+#random {
+  visibility: hidden;
+}
+#rnd {
+  width: 20px;
+  position: relative;
+}
+#rnd label {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  left:0;
+  border-radius: 4px;
+  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+  background: linear-gradient(to top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+}
+#rnd label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 5px;
+  background: transparent;
+  top: 4px;
+  left: 4px;
+  border: 3px solid #333;
+  border-top: none;
+  border-right: none;
+  transform: rotate(-45deg);
+}
+#rnd label:hover::after {
+  opacity: 0.5;
+}
+#rnd input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+#round {
+    height: 30px;
+    border: 0;
+    outline: 0;
+    font-family: "Open Sans";
+    font-size: 18px;
+    color: #4f4f4f;
+    padding: 4px 4px;
+}
