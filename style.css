@@ -90,3 +90,20 @@ P {
     color: #4f4f4f;
     padding: 4px 4px;
 }
+#menucontainer {
+	position:relative;
+}
+#menu {
+	width: 200px;
+    height: 110px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 40px;
+    left: -80px;
+	border-radius: 5px;
+}
+#menu a {
+	font-size: 16px;
+	color: #efefef;
+	text-decoration: none;
+}
