@@ -26,19 +26,13 @@
         for (i=1;i<=50;i++) EqEditor.add(new EqTextArea('equation'+i, 'taskText'+i),false);
         EqEditor.setFormat('gif');
     }
-    function openTask(s) {  
+    function openTask(s) {
+        document.getElementById('teachVideo').style.display='none';
+	    document.getElementById('author').style.display='none';	
         document.getElementById('task'+task).style.display='block';
 		if (s!='') document.getElementById('taskText'+task).value=s;
 		task++
     }
-	function showMenu(s) {
-	   document.getElementById(s).style.display='block';
-	   document.getElementById('teachVideo').style.display='none';
-	   document.getElementById('author').style.display='none';  
-	}
-    function hideMenu(s) {
-	document.getElementById(s).style.display='none';
-    }	
     </SCRIPT>
   <LINK rel="stylesheet" type="text/css" href='style.css'>
   </HEAD>
@@ -55,27 +49,36 @@
         <div id='editor'></div><br>
       </div><br>
 	  <!-- Менюшка -->
-      <div id='mainmenucontainer' onmouseover="showMenu('mainmenu')" onmouseout="hideMenu('mainmenu')">
+      <div id='mainmenucontainer'>
 	  <img src='add.png' style='width:40px' onclick="openTask('')">
-	  <div id='mainmenu' style='display:none'>
+	  <div id='mainmenu'>
 	  <!-- Первая подменюшка -->
-	  <div id='submenu1container' onmouseover="showMenu('submenu1')" onmouseout="hideMenu('submenu1')">
+	  <div>
 	  <a>Уравнения</a>
-	  <div id='submenu1' style='display:none'>
-	  <a href="javascript:openTask('!Ax+!B=0')">Линейное уравнение</a>
-	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)=0')">Квадратное уравнение</a>
-	  <a href="javascript:openTask('!A^{x}=[\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное уравнение</a>
+	  <div>
+	  <a href="javascript:openTask('!Ax+!B=0')">Линейное уравнение</a><br>
+	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)=0')">Квадратное уравнение</a><br>
+	  <a href="javascript:openTask('!A^{x}=[\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное уравнение</a><br>
 	  <a href="javascript:openTask('log_{!A}x=!B')">Логарифмическое уравнение</a>
 	  </div>
 	  </div>
 	  <!-- Вторая подменюшка -->
-	  <div id='submenu2container' onmouseover="showMenu('submenu2')" onmouseout="hideMenu('submenu2')">
+	  <div>
 	  <a>Неравенства</a>
-	  <div id='submenu2' style='display:none'>
-	  <a href="javascript:openTask('!Ax+!B[<;>;⩾;⩽]0')">Линейное неравенство</a>
-	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)[<;>;⩾;⩽]0')">Квадратное неравенство</a>
-	  <a href="javascript:openTask('[!A;\\frac{1}{!A}]^{x}[<;>;⩾;⩽][\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное неравенство</a>
+	  <div>
+	  <a href="javascript:openTask('!Ax+!B[<;>;⩾;⩽]0')">Линейное неравенство</a><br>
+	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)[<;>;⩾;⩽]0')">Квадратное неравенство</a><br>
+	  <a href="javascript:openTask('[!A;\\frac{1}{!A}]^{x}[<;>;⩾;⩽][\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное неравенство</a><br>
 	  <a href="javascript:openTask('log_{!A}x[<;>;⩾;⩽]!B')">Логарифмическое неравенство</a>
+	  </div>
+	  </div>
+	  <!-- Третья подменюшка -->
+	  <div>
+	  <a>ФСУ</a>
+	  <div>
+	  <a href="javascript:openTask('pow(!A,2)x^{2}-pow(!B,2)y^{2}=')">Разность квадратов</a><br>
+	  <a href="javascript:openTask('pow(!A,2)x^{2}+(2*!A*!B)xy+pow(!B,2)y^{2}=')">Квадрат суммы (разности)</a><br>
+	  <a href="javascript:openTask('pow(!A,3)x^{3}+(3*pow(!A,2)*!B)x^{2}y+(3*!A*pow(!B,2))xy^{2}+pow(!B,3)y^{3}=')">Куб суммы (разности)</a>
 	  </div>
 	  </div>
 	  <a href="javascript:openTask('\\left\\{\\begin{matrix}!Ax+!By=((!A*!C)+(!B*!D))\\\\!Ex+!Fy=((!E*!C)+(!F*!D)) \\end{matrix}\\right.')">Система уравнений</a>
@@ -88,4 +91,4 @@
   <DIV id="container"></DIV>
         <div id='author' style='width:300px;position:fixed; bottom:10px; left:50%; margin-left:-150px; text-align:center'><a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a></div>
   </BODY>
-</HTML>  
+</HTML>

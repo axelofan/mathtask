@@ -40,14 +40,10 @@ input[type="text"]:focus {
 #tasks td {
   border: 1px solid black;
 }
-P {
+p {
   margin:2px 0;
 }
-#random {
-  visibility: hidden;
-}
 #rnd {
-  width: 20px;
   position: relative;
 }
 #rnd label {
@@ -88,15 +84,23 @@ P {
     font-family: "Open Sans";
     font-size: 18px;
     color: #4f4f4f;
-    padding: 4px 4px;
+    padding: 0 4px;
 }
 #mainmenucontainer {
 	z-index:1;
 	position:relative;
 }
+#mainmenucontainer div {
+	display:none;
+}
+#mainmenucontainer:hover > div, #mainmenu > div  {
+	display:block;
+}
+#mainmenu > div:hover > div {
+	display:block;
+}
 #mainmenu {
 	width: 200px;
-    height: 110px;
     background: rgba(0,0,0,0.5);
     position: absolute;
     top: 40px;
@@ -108,37 +112,19 @@ P {
 	color: #efefef;
 	text-decoration: none;
 }
-#submenu1container {
+#mainmenu div {
 	z-index:1;
 	position:relative;
 	width:100%;
 }
-#submenu1 {
+#mainmenu div > div {
 	width: 250px;
-    height: 140px;
-    background: rgba(0,0,0,0.5);
-    position: absolute;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
     top: 0;
     left: 200px;
 	border-radius: 5px;
 }
-#submenu1container:hover > a {
-	color: #a1a1a1;
-}
-#submenu2container {
-	z-index:1;
-	position:relative;
-	width:100%;
-}
-#submenu2 {
-	width: 250px;
-    height: 140px;
-    background: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 0;
-    left: 200px;
-	border-radius: 5px;
-}
-#submenu2container:hover > a {
-	color: #a1a1a1;
+#mainmenu > div:hover > a {
+	color: #a1a1a1
 }
