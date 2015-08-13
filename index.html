@@ -11,7 +11,6 @@
     <SCRIPT type="text/javascript" src="generator.js"></SCRIPT>
     <SCRIPT type="text/javascript">
     task=1;
-	info=true;
     function convert() {
         document.getElementById('input').value='';
         var taskText = document.getElementsByClassName('taskText');
@@ -33,12 +32,9 @@
 		task++
     }
 	function showMenu(s) {
-	document.getElementById(s).style.display='block';
-	if (info) {
-	    document.getElementById('teachVideo').style.display='none';
-	    document.getElementById('author').style.display='none';
-        info=false;	   
-	}
+	   document.getElementById(s).style.display='block';
+	   document.getElementById('teachVideo').style.display='none';
+	   document.getElementById('author').style.display='none';  
 	}
     function hideMenu(s) {
 	document.getElementById(s).style.display='none';
