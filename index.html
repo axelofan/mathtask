@@ -60,15 +60,24 @@
 	  <div id='mainmenu' style='display:none'>
 	  <!-- Первая подменюшка -->
 	  <div id='submenu1container' onmouseover="showMenu('submenu1')" onmouseout="hideMenu('submenu1')">
-	  <a href="">Уравнения</a>
+	  <a>Уравнения</a>
 	  <div id='submenu1' style='display:none'>
 	  <a href="javascript:openTask('!Ax+!B=0')">Линейное уравнение</a>
 	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)=0')">Квадратное уравнение</a>
 	  <a href="javascript:openTask('!A^{x}=[\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное уравнение</a>
-	  <a href="javascript:openTask('log_{!A}x=pow(!A,!B)')">Логарифмическое уравнение</a>
+	  <a href="javascript:openTask('log_{!A}x=!B')">Логарифмическое уравнение</a>
 	  </div>
 	  </div>
+	  <!-- Вторая подменюшка -->
+	  <div id='submenu2container' onmouseover="showMenu('submenu2')" onmouseout="hideMenu('submenu2')">
+	  <a>Неравенства</a>
+	  <div id='submenu2' style='display:none'>
+	  <a href="javascript:openTask('!Ax+!B[<;>;⩾;⩽]0')">Линейное неравенство</a>
 	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)[<;>;⩾;⩽]0')">Квадратное неравенство</a>
+	  <a href="javascript:openTask('[!A;\\frac{1}{!A}]^{x}[<;>;⩾;⩽][\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное неравенство</a>
+	  <a href="javascript:openTask('log_{!A}x[<;>;⩾;⩽]!B')">Логарифмическое неравенство</a>
+	  </div>
+	  </div>
 	  <a href="javascript:openTask('\\left\\{\\begin{matrix}!Ax+!By=((!A*!C)+(!B*!D))\\\\!Ex+!Fy=((!E*!C)+(!F*!D)) \\end{matrix}\\right.')">Система уравнений</a>
 	  </div>
 	  </div>
