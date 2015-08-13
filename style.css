@@ -3,13 +3,13 @@
   #settings {
     display:none;
   }
-  #tasks tr {
+  tr {
     display: block;
     page-break-inside: avoid;
   }
   #background {
     display:none;
-}
+  }
 }
 #settings{
   margin:0 auto;
@@ -22,7 +22,7 @@
 }
 input[type='text'] {
   width: 30px;
-  height:24px;
+  height:30px;
   font-family:"Open Sans";
   font-size: 18px;
   border: solid 1px #dcdcdc;
@@ -32,12 +32,12 @@ input[type='text'] {
 input[type="text"]:focus {
  box-shadow: 0 0 5px 1px #969696;
 }
-#tasks {
+table {
   border-collapse: collapse;
   padding: 0;
   margin: 0 auto;
 }
-#tasks td {
+td {
   border: 1px solid black;
 }
 p {
@@ -85,6 +85,14 @@ p {
     font-size: 18px;
     color: #4f4f4f;
     padding: 0 4px;
+<<<<<<< HEAD
+=======
+}
+#equationEditor .task {
+	width:100%;
+	display:none;
+	margin-bottom:5px;
+>>>>>>> master
 }
 #mainmenucontainer {
 	z-index:1;

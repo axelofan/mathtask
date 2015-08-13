@@ -11,26 +11,25 @@
     <SCRIPT type="text/javascript" src="generator.js"></SCRIPT>
     <SCRIPT type="text/javascript">
     task=1;
-    function convert() {
-        document.getElementById('input').value='';
-        var taskText = document.getElementsByClassName('taskText');
-        for (i=0;i<taskText.length;i++){
-          for (j=0;j<parseInt(document.getElementById('number'+(i+1)).value);j++)
-          if (taskText[i].value!='') document.getElementById('input').value+='\\( '+taskText[i].value+' \\)'+'\n';
+    function send() {
+	    input=[];
+        for (i=1;i<=20;i++){
+			if (document.getElementById('text'+i).value!='')
+            for (j=1;j<=document.getElementById('numb'+i).value;j++) input.push('\\( '+document.getElementById('text'+i).value+' \\)');
         }
-        Create();
+		Create();
     }
     function createTask() {
-        for (i=1;i<=50;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' style='width:100%; display:none; margin-bottom:5px'><input type='text' id='number"+i+"' style='height:30px; font-size:18px' value=1> <input type='text' class='taskText' id='taskText"+i+"' style='width:300px;height:30px;font-size:18px' placeholder='Введите шаблон примера'> <img id='equation"+i+"'></div>";  
+        for (i=1;i<=20;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' class='task'><input type='text' id='numb"+i+"' value=1> <input type='text' id='text"+i+"' style='width:300px' placeholder='Введите шаблон примера'><img id='equation"+i+"'></div>";  
         EqEditor.embed('editor',null,'mini','ru-ru');
-        for (i=1;i<=50;i++) EqEditor.add(new EqTextArea('equation'+i, 'taskText'+i),false);
+        for (i=1;i<=20;i++) EqEditor.add(new EqTextArea('equation'+i, 'text'+i),false);
         EqEditor.setFormat('gif');
     }
     function openTask(s) {
         document.getElementById('teachVideo').style.display='none';
 	    document.getElementById('author').style.display='none';	
         document.getElementById('task'+task).style.display='block';
-		if (s!='') document.getElementById('taskText'+task).value=s;
+		if (s!='') document.getElementById('text'+task).value=s;
 		task++
     }
     </SCRIPT>
@@ -84,11 +83,10 @@
 	  <a href="javascript:openTask('\\left\\{\\begin{matrix}!Ax+!By=((!A*!C)+(!B*!D))\\\\!Ex+!Fy=((!E*!C)+(!F*!D)) \\end{matrix}\\right.')">Система уравнений</a>
 	  </div>
 	  </div>
-      <img src='download.png' style='width:40px' onclick='convert()'>
+      <img src='download.png' style='width:40px' onclick='send()'>
       <br><iframe width="444" height="250" src="https://www.youtube.com/embed/j1F0kRKZNEQ" frameborder="0" id='teachVideo'></iframe>
     </DIV>
-  <textarea id='input' style='display:none'></textarea>
-  <DIV id="container"></DIV>
-        <div id='author' style='width:300px;position:fixed; bottom:10px; left:50%; margin-left:-150px; text-align:center'><a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a></div>
+  <DIV id="output"></DIV>
+  <div id='author' style='width:300px;position:fixed; bottom:10px; left:50%; margin-left:-150px; text-align:center'><a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a></div>
   </BODY>
 </HTML>
