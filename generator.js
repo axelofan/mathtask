@@ -60,18 +60,17 @@ function replace (l) {
 }
 
 function Create() {
-   pattern = document.getElementById('input').value.split('\n').filter(function(x){return x!=''}); //массив с шаблонами заданий (string)
-   min = parseInt(document.getElementById('min').value); //минимальное значение переменных (Int)
-   max = parseInt(document.getElementById('max').value); //максимальное значение переменных (Int)
-   round = document.getElementById('round').selectedIndex; //число знаков после запятой (Int)
-   variant = 30; //количество вариантов (Int)
-   count = pattern.length; //количество заданий (Int)
-   cols = 5; //число колонок в одной строке (Int)
-   shuffle = document.getElementById('random').checked; //случайный порядок заданий (Boolean)
-  var container = document.getElementById("container");
+  pattern=input; //массив с шаблонами заданий (string)
+  min = parseInt(document.getElementById('min').value); //минимальное значение переменных (Int)
+  max = parseInt(document.getElementById('max').value); //максимальное значение переменных (Int)
+  round = document.getElementById('round').selectedIndex; //число знаков после запятой (Int)
+  variant = 30; //количество вариантов (Int)
+  count = pattern.length; //количество заданий (Int)
+  cols = 5; //число колонок в одной строке (Int)
+  shuffle = document.getElementById('random').checked; //случайный порядок заданий (Boolean)
+  var container = document.getElementById("output");
   container.innerHTML="";
   var table = document.createElement("TABLE");
-  table.id='tasks';
   container.appendChild(table);
   var tr = document.createElement("TR");
   table.appendChild(tr);
