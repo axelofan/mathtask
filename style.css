@@ -114,7 +114,7 @@ P {
 	width:100%;
 }
 #submenu1 {
-	width: 240px;
+	width: 250px;
     height: 140px;
     background: rgba(0,0,0,0.5);
     position: absolute;
@@ -122,11 +122,23 @@ P {
     left: 200px;
 	border-radius: 5px;
 }
-#submenu1 a {
-	font-size: 16px;
-	color: #efefef;
-	text-decoration: none;
-}
 #submenu1container:hover > a {
+	color: #a1a1a1;
+}
+#submenu2container {
+	z-index:1;
+	position:relative;
+	width:100%;
+}
+#submenu2 {
+	width: 250px;
+    height: 140px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 200px;
+	border-radius: 5px;
+}
+#submenu2container:hover > a {
 	color: #a1a1a1;
 }
