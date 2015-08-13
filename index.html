@@ -11,6 +11,7 @@
     <SCRIPT type="text/javascript" src="generator.js"></SCRIPT>
     <SCRIPT type="text/javascript">
     task=1;
+	info=true;
     function convert() {
         document.getElementById('input').value='';
         var taskText = document.getElementsByClassName('taskText');
@@ -30,11 +31,18 @@
         document.getElementById('task'+task).style.display='block';
 		if (s!='') document.getElementById('taskText'+task).value=s;
 		task++
-      }
-	function hideInfo() {
-	    document.getElementById('teachVideo').style.display='none';
-		document.getElementById('author').style.display='none';
     }
+	function showMenu(s) {
+	document.getElementById(s).style.display='block';
+	if (info) {
+	    document.getElementById('teachVideo').style.display='none';
+	    document.getElementById('author').style.display='none';
+        info=false;	   
+	}
+	}
+    function hideMenu(s) {
+	document.getElementById(s).style.display='none';
+    }	
     </SCRIPT>
   <LINK rel="stylesheet" type="text/css" href='style.css'>
   </HEAD>
@@ -47,13 +55,23 @@
       <p><b>(!A+!B)</b>, <b>(!A-!B)</b>, <b>(!A*!B)</b>, <b>(!A/!B)</b> - основные математические операции;</p>
       <p><b>abs(!A)</b> - модуль, <b>pow(!A,!B)</b> - !A<sup>!B</sup>, <b>sqrt(!A)</b> - квадратный корень</p>
       <p><b>sin(!A)</b>, <b>cos(!A)</b>, <b>tan(!A)</b>, <b>asin(!A)</b>, <b>acos(!A)</b>, <b>atan(!A)</b> - тригонометрические функции.</p>
-      <DIV id='equationEditor' style='position:relative'>
+      <div id='equationEditor' style='position:relative'>
         <div id='editor'></div><br>
-      </DIV><br>
-      <div id='menucontainer' onmouseover="document.getElementById('menu').style.display='block';hideInfo()" onmouseout="document.getElementById('menu').style.display='none'">
+      </div><br>
+	  <!-- Менюшка -->
+      <div id='mainmenucontainer' onmouseover="showMenu('mainmenu')" onmouseout="hideMenu('mainmenu')">
 	  <img src='add.png' style='width:40px' onclick="openTask('')">
-	  <div id='menu' style='display:none'>
+	  <div id='mainmenu' style='display:none'>
+	  <!-- Первая подменюшка -->
+	  <div id='submenu1container' onmouseover="showMenu('submenu1')" onmouseout="hideMenu('submenu1')">
+	  <a href="">Уравнения</a>
+	  <div id='submenu1' style='display:none'>
+	  <a href="javascript:openTask('!Ax+!B=0')">Линейное уравнение</a>
 	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)=0')">Квадратное уравнение</a>
+	  <a href="javascript:openTask('!A^{x}=[\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное уравнение</a>
+	  <a href="javascript:openTask('log_{!A}x=pow(!A,!B)')">Логарифмическое уравнение</a>
+	  </div>
+	  </div>
 	  <a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)[<;>;⩾;⩽]0')">Квадратное неравенство</a>
 	  <a href="javascript:openTask('\\left\\{\\begin{matrix}!Ax+!By=((!A*!C)+(!B*!D))\\\\!Ex+!Fy=((!E*!C)+(!F*!D)) \\end{matrix}\\right.')">Система уравнений</a>
 	  </div>

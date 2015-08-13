@@ -90,10 +90,11 @@ P {
     color: #4f4f4f;
     padding: 4px 4px;
 }
-#menucontainer {
+#mainmenucontainer {
+	z-index:1;
 	position:relative;
 }
-#menu {
+#mainmenu {
 	width: 200px;
     height: 110px;
     background: rgba(0,0,0,0.5);
@@ -102,8 +103,30 @@ P {
     left: -80px;
 	border-radius: 5px;
 }
-#menu a {
+#mainmenu a {
 	font-size: 16px;
 	color: #efefef;
 	text-decoration: none;
+}
+#submenu1container {
+	z-index:1;
+	position:relative;
+	width:100%;
+}
+#submenu1 {
+	width: 240px;
+    height: 140px;
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    left: 200px;
+	border-radius: 5px;
+}
+#submenu1 a {
+	font-size: 16px;
+	color: #efefef;
+	text-decoration: none;
+}
+#submenu1container:hover > a {
+	color: #a1a1a1;
 }
