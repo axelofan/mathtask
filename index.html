@@ -13,16 +13,17 @@
     task=1;
     function send() {
 	    input=[];
-        for (i=1;i<=20;i++){
+
+        for (i=1;i<=50;i++){
 			if (document.getElementById('text'+i).value!='')
             for (j=1;j<=document.getElementById('numb'+i).value;j++) input.push('\\( '+document.getElementById('text'+i).value+' \\)');
         }
 		Create();
     }
     function createTask() {
-        for (i=1;i<=20;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' class='task'><input type='text' id='numb"+i+"' value=1> <input type='text' id='text"+i+"' style='width:300px' placeholder='Введите шаблон примера'><img id='equation"+i+"'></div>";  
+        for (i=1;i<=50;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' class='task'><input type='text' id='numb"+i+"' value=1> <input type='text' id='text"+i+"' style='width:300px' placeholder='Введите шаблон примера'><img id='equation"+i+"'></div>";  
         EqEditor.embed('editor',null,'mini','ru-ru');
-        for (i=1;i<=20;i++) EqEditor.add(new EqTextArea('equation'+i, 'text'+i),false);
+        for (i=1;i<=50;i++) EqEditor.add(new EqTextArea('equation'+i, 'text'+i),false);
         EqEditor.setFormat('gif');
     }
     function openTask(s) {
@@ -30,7 +31,8 @@
 	    document.getElementById('author').style.display='none';	
         document.getElementById('task'+task).style.display='block';
 		if (s!='') document.getElementById('text'+task).value=s;
-		task++
+		document.getElementById('settings').style.height=(document.getElementById('settings').scrollHeight+30)+'px';
+		task++	
     }
     </SCRIPT>
   <LINK rel="stylesheet" type="text/css" href='style.css'>
@@ -87,6 +89,6 @@
       <br><iframe width="444" height="250" src="https://www.youtube.com/embed/j1F0kRKZNEQ" frameborder="0" id='teachVideo'></iframe>
     </DIV>
   <DIV id="output"></DIV>
-  <div id='author' style='width:300px;position:fixed; bottom:10px; left:50%; margin-left:-150px; text-align:center'><a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a></div>
+  <div id='author' style='width:300px;position:absolute; bottom:10px; left:50%; margin-left:-150px; text-align:center'><a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a></div>
   </BODY>
 </HTML>
