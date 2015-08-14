@@ -1,15 +1,21 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans&subset=cyrillic-ext,latin);
 @media print {
-  #settings {
+  #settings, #background, #info{
     display:none;
   }
   tr {
     display: block;
     page-break-inside: avoid;
   }
-  #background {
-    display:none;
-  }
+}
+#background {
+	width:100%;
+	height:100%;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:-1;
+	background: url(background.svg);
 }
 #settings{
   margin:0 auto;
@@ -132,4 +138,12 @@ p {
 }
 #mainmenu > div:hover > a {
 	color: #a1a1a1
+}
+#info {
+	width:532px;
+	position:absolute;
+	bottom:10px;
+	left:50%;
+	margin-left:-266px;
+	text-align:center;
 }
