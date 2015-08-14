@@ -85,14 +85,11 @@ p {
     font-size: 18px;
     color: #4f4f4f;
     padding: 0 4px;
-<<<<<<< HEAD
-=======
 }
 #equationEditor .task {
 	width:100%;
 	display:none;
 	margin-bottom:5px;
->>>>>>> master
 }
 #mainmenucontainer {
 	z-index:1;
