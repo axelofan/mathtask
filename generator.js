@@ -6,17 +6,13 @@ function PHPround(value, precision) {
    sgn = (value > 0) | -(value < 0); // sign of the number
    isHalf = value % 1 === 0.5 * sgn;
    f = Math.floor(value);
-   if (isHalf) {
-      value = f + (sgn > 0); // rounds .5 away from zero
-   }
+   if (isHalf) value = f + (sgn > 0); // rounds .5 away from zero
    return (isHalf ? value : Math.round(value)) / m;
 }
 
-Array.prototype.shuffle = function( b )
-{
+Array.prototype.shuffle = function( b ) {
  var i = this.length, j, t;
- while( i ) 
- {
+ while( i ) {
   j = Math.floor( ( i-- ) * Math.random() );
   t = b && typeof this[i].shuffle!=='undefined' ? this[i].shuffle() : this[i];
   this[i] = this[j];
@@ -81,10 +77,8 @@ function Create() {
     }
     var td = document.createElement("TD");
     if (shuffle) pattern.shuffle();
-    for (j=0;j<count;j++) {
-      td.innerHTML += replace(pattern[j%pattern.length])+'<br>';
-    }
+    for (j=0;j<count;j++) td.innerHTML += replace(pattern[j%pattern.length])+'<br>';
     tr.appendChild(td);
-    }
+  }
   MathJax.Hub.Queue(["Typeset",MathJax.Hub]); //delete, if you don't use MathJax
 }
