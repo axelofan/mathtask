@@ -28,7 +28,7 @@
   font-family:"Open Sans";
   font-size:24px;
 }
-#settings div {
+#settings .inline {
   display:inline-block;
 }
 input[type='text'] {
