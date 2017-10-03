@@ -36,7 +36,7 @@ function replace (l) {
   var choice = new RegExp(/\[[^\]]+\]/g);
 
   var momi = new RegExp(/<mo>!<\/mo><mi>([A-Z])<\/mi>/g);
-  while (momi.test(l)) l.match(momi).forEach(function(element) {l = l.replace(element,'!$1');}); //replace MathML
+  while (momi.test(l)) l.match(momi).forEach(function(element) {l = l.replace(element,'<mn>!'+$1+'</mn>');}); //replace MathML
 
   var variable = [new RegExp(/!A/g), new RegExp(/!B/g), new RegExp(/!C/g), new RegExp(/!D/g), new RegExp(/!E/g), new RegExp(/!F/g), new RegExp(/!G/g), new RegExp(/!H/g), new RegExp(/!I/g), new RegExp(/!J/g), new RegExp(/!K/g), new RegExp(/!L/g), new RegExp(/!M/g), new RegExp(/!N/g), new RegExp(/!P/g), new RegExp(/!Q/g), new RegExp(/!R/g), new RegExp(/!S/g), new RegExp(/!T/g), new RegExp(/!U/g), new RegExp(/!V/g), new RegExp(/!W/g), new RegExp(/!X/g), new RegExp(/!Y/g), new RegExp(/!Z/g)]
   variable.forEach(function(element) {
