@@ -43,7 +43,7 @@
       <p><b>abs(!A)</b> - модуль, <b>pow(!A,!B)</b> - !A<sup>!B</sup>, <b>sqrt(!A)</b> - квадратный корень</p>
       <p><b>sin(!A)</b>, <b>cos(!A)</b>, <b>tan(!A)</b>, <b>asin(!A)</b>, <b>acos(!A)</b>, <b>atan(!A)</b> - тригонометрические функции.</p>
       <div id='equationEditor' style='position:relative'>
-        <div id='editor'></div><br>
+        <div style="width:500px;height:300px" id='editor'></div><br>
       </div><br>
 	  <!-- Менюшка -->
       <div id='mainmenucontainer'>
@@ -90,7 +90,7 @@
 	<DIV id="output"></DIV>
 	<script>
 		var editor;
-		editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
+		editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'ru','width':500});
 		editor.insertInto(document.getElementById('editor'));
 	</script>
   </BODY>
