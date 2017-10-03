@@ -56,6 +56,7 @@ p {
 }
 #rnd {
   position: relative;
+  display: inline-block;
 }
 #rnd label {
   cursor: pointer;
@@ -151,4 +152,11 @@ p {
 	left:50%;
 	margin-left:-266px;
 	text-align:center;
+}
+#editor {
+  width: 530px;
+  height:150px;
+  position: relative;
+  left: 50%;
+  margin-left: -265px;
 }
