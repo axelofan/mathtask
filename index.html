@@ -1,41 +1,18 @@
-<!DOCTYPE html>
-<HTML>
-  <HEAD>
-    <META http-equiv="Content-Type" content="text/html; charset=utf-8">  
-		<TITLE>Генератор заданий</TITLE>
-		<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-		<script src="http://www.wiris.net/demo/editor/editor"></script>
-    <SCRIPT type="text/javascript" src="generator.js"></SCRIPT>
-		<SCRIPT type="text/javascript">
-    task=1;
-
-    function send() {
-			console.log(editor.getMathML());
-			input = [editor.getMathML()];
-	    /*input=[];
-        for (i=1;i<=50;i++){
-			if (document.getElementById('text'+i).value!='')
-            for (j=1;j<=document.getElementById('numb'+i).value;j++) input.push('\\( '+document.getElementById('text'+i).value+' \\)');
-        }*/
-			Create();
-    }
-    //function createTask() {
-        //for (i=1;i<=50;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' class='task'><input type='text' id='numb"+i+"' value=1> <input type='text' id='text"+i+"' style='width:300px' placeholder='Введите шаблон примера'> <img id='equation"+i+"'></div>";  
-    //}
-    //function openTask(s) {
-    //    document.getElementById('info').style.display='none';	
-    //    document.getElementById('task'+task).style.display='block';
-		//if (s!='') document.getElementById('text'+task).value=s;
-		//document.getElementById('settings').style.height=(document.getElementById('settings').scrollHeight+30)+'px';
-		//task++	
-    //}
-    </SCRIPT>
-  <LINK rel="stylesheet" type="text/css" href='style.css'>
-  </HEAD>
-  <BODY>
-    <div id='background'></div>
-    <DIV id="settings">
-      <P>Числовой интервал <INPUT type="text" id="min" value="-20"> - <INPUT type="text" id="max" value="20">; Число знаков после запятой <label><select id='round'><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label></P>
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">  
+    <title>Генератор заданий</title>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/javascript" src="eq_config.js" ></script>
+    <script type="text/javascript" src="eq_editor-lite-19.js" ></script>
+    <link rel="stylesheet" type="text/css" href="equation-embed.css" />
+    <script type="text/javascript" src="generator2.0.js"></script>
+  	<link rel="stylesheet" type="text/css" href='style.css'>
+	</head>
+  <body>
+    <div id="settings">
+      <p>Числовой интервал <input type="text" id="min" value="-20"> - <input type="text" id="max" value="20">; Число знаков после запятой <label><select id='round'><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option></select></label></p>
       Случайный порядок заданий <div id='rnd'><INPUT type="checkbox" id="random"><label for="random"></label></div>
       <p><b>!A-!Z</b> - переменные (случайное число из интервала);<br> <b>[I; II; III;...]</b> - случайный выбор одного из вариантов;</p>
       <p><b>(!A+!B)</b>, <b>(!A-!B)</b>, <b>(!A*!B)</b>, <b>(!A/!B)</b> - основные математические операции;</p>
@@ -44,18 +21,74 @@
       <div id='equationEditor' style='position:relative'>
         <div id='editor'></div><br>
       </div><br>
-		
-		<img src='download.png' style='width:40px' onclick='send()' alt='create'>
-		</div>
-<!--<div id='info'>
+	  	<!-- Менюшка -->
+    	<div id='mainmenucontainer'>
+	  		<img src='add.png' style='width:40px' onclick="openTask('')" alt='add'>
+	  		<div id='mainmenu'>
+					<!-- Первая подменюшка -->
+	  			<div>
+					<a>Уравнения</a>
+	  			<div>
+	  				<a href="javascript:openTask('!Ax+!B=0')">Линейное уравнение</a><br>
+	  				<a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)=0')">Квадратное уравнение</a><br>
+						<a href="javascript:openTask('!A^{x}=[\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное уравнение</a><br>
+	  				<a href="javascript:openTask('log_{!A}x=!B')">Логарифмическое уравнение</a>
+	  			</div>
+				</div>
+	  		<!-- Вторая подменюшка -->
+	  		<div>
+	  			<a>Неравенства</a>
+	  			<div>
+	  				<a href="javascript:openTask('!Ax+!B[<;>;⩾;⩽]0')">Линейное неравенство</a><br>
+	  				<a href="javascript:openTask('!Ax^{2}-(!A*(!B+!C))x+(!A*!B*!C)[<;>;⩾;⩽]0')">Квадратное неравенство</a><br>
+	  				<a href="javascript:openTask('[!A;\\frac{1}{!A}]^{x}[<;>;⩾;⩽][\\frac{1}{pow(!A,2)};\\frac{1}{!A};!A;pow(!A,2);pow(!A,3)]^{!B}')">Показательное неравенство</a><br>
+	  				<a href="javascript:openTask('log_{!A}x[<;>;⩾;⩽]!B')">Логарифмическое неравенство</a>
+	  			</div>
+	  		</div>
+	  		<!-- Третья подменюшка -->
+	  		<div>
+	  			<a>ФСУ</a>
+	  			<div>
+	  				<a href="javascript:openTask('pow(!A,2)x^{2}-pow(!B,2)y^{2}=')">Разность квадратов</a><br>
+	  				<a href="javascript:openTask('pow(!A,2)x^{2}+(2*!A*!B)xy+pow(!B,2)y^{2}=')">Квадрат суммы (разности)</a><br>
+	  				<a href="javascript:openTask('pow(!A,3)x^{3}+(3*pow(!A,2)*!B)x^{2}y+(3*!A*pow(!B,2))xy^{2}+pow(!B,3)y^{3}=')">Куб суммы (разности)</a>
+	  			</div>
+	  		</div>
+	  		<a href="javascript:openTask('\\left\\{\\begin{matrix}!Ax+!By=((!A*!C)+(!B*!D))\\\\!Ex+!Fy=((!E*!C)+(!F*!D)) \\end{matrix}\\right.')">Система уравнений</a>
+	  	</div>
+	  </div>
+	  <img src='download.png' style='width:40px' onclick='send()' alt='create'>
+	</div>
+	<div id='info'>
 	<iframe src="https://www.youtube.com/embed/j1F0kRKZNEQ" style='width:533px; height:300px; border:0'></iframe><br>
 	<a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a>
-	</div>-->
+	</div>
 	<DIV id="output"></DIV>
-	<script>
-		var editor;
-		editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'ru','autoformat':true});
-		editor.insertInto(document.getElementById('editor'));
-	</script>
+	<script type="text/javascript">
+    task=0;
+		EqEditor.embed('editor',null,'mini','ru-ru');
+		generator.init('output');
+    function send() {
+			input=[];
+			min = parseInt(document.getElementById('min').value);
+			max = parseInt(document.getElementById('max').value);
+			round = document.getElementById('round').selectedIndex;
+			shuffle = document.getElementById('random').checked;
+			for (i=1;i<=task;i++){
+			if (document.getElementById('text'+i).value!='')
+    		for (j=1;j<=document.getElementById('numb'+i).value;j++) input.push('\\( '+document.getElementById('text'+i).value+' \\)');
+			}
+			generator.create(input,min,max,round,shuffle);
+    }
+    function openTask(s) {
+			task++;
+			var div = document.createElement('div');
+			div.innerHTML+="<input type='text' id='numb"+task+"' value=1> <input type='text' id='text"+task+"' style='width:300px' placeholder='Введите шаблон примера'> <img id='equation"+task+"'>";
+			document.getElementById('equationEditor').appendChild(div);
+			document.getElementById('text'+task).value = s;
+			EqEditor.add(new EqTextArea('equation'+task, 'text'+task),false);
+			document.getElementById('info').style.display='none';
+    }
+    </script>
   </BODY>
 </HTML>
