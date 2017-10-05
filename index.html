@@ -2,13 +2,14 @@
 <HTML>
   <HEAD>
     <META http-equiv="Content-Type" content="text/html; charset=utf-8">  
-		<TITLE>Генератор заданий</TITLE>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
-		<script src="http://www.wiris.net/demo/editor/editor"></script>
+    <TITLE>Генератор заданий</TITLE>
+    <SCRIPT type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></SCRIPT>
+    <script type="text/javascript" src="http://latex.codecogs.com/js/eq_config.js" ></script>
+    <script type="text/javascript" src="http://latex.codecogs.com/js/eq_editor-lite-18.js" ></script>
+    <link rel="stylesheet" type="text/css" href="http://latex.codecogs.com/css/equation-embed.css" />
     <SCRIPT type="text/javascript" src="generator.js"></SCRIPT>
-		<SCRIPT type="text/javascript">
+    <SCRIPT type="text/javascript">
     task=1;
-
     function send() {
 	    input=[];
         for (i=1;i<=50;i++){
@@ -19,9 +20,9 @@
     }
     function createTask() {
         for (i=1;i<=50;i++) document.getElementById('equationEditor').innerHTML+="<div id='task"+i+"' class='task'><input type='text' id='numb"+i+"' value=1> <input type='text' id='text"+i+"' style='width:300px' placeholder='Введите шаблон примера'> <img id='equation"+i+"'></div>";  
-        //EqEditor.embed('editor',null,'mini','ru-ru');
-        //for (i=1;i<=50;i++) EqEditor.add(new EqTextArea('equation'+i, 'text'+i),false);
-        //EqEditor.setFormat('gif');
+        EqEditor.embed('editor',null,'mini','ru-ru');
+        for (i=1;i<=50;i++) EqEditor.add(new EqTextArea('equation'+i, 'text'+i),false);
+        EqEditor.setFormat('gif');
     }
     function openTask(s) {
         document.getElementById('info').style.display='none';	
@@ -87,11 +88,6 @@
 	<iframe src="https://www.youtube.com/embed/j1F0kRKZNEQ" style='width:533px; height:300px; border:0'></iframe><br>
 	<a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a>
 	</div>
-	<DIV id="output"></DIV>
-	<script>
-		var editor;
-		editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
-		editor.insertInto(document.getElementById('editor'));
-	</script>
+  <DIV id="output"></DIV>
   </BODY>
 </HTML>
