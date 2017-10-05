@@ -1,0 +1,55 @@
+/* The default text style used on every page */
+#EqnEditor #hover { padding:2px; position:absolute; display:none; z-index:50; background-color:#ffc; border:1px solid #999999; }
+
+#EqnEditor { margin:0 auto; text-align:center; 
+  font-size:12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+#EqnEditor .top { margin:0 auto; padding:2px 0; }
+#EqnEditor .bottom { border-bottom:1px solid #9a9a9a; }
+#EqnEditor .toolbar_wrapper { margin:0 auto; }
+#EqnEditor .toolbar {	position:relative; padding-top:2px; text-align: center; }
+#EqnEditor .toolbar_space { height:38px; margin:0 auto; }
+#EqnEditor .panel { display:inline-block; padding:0; overflow:hidden; vertical-align:top; }
+#EqnEditor .panel > img { padding:0 1px 0 3px; background-color: white; }
+#EqnEditor .panel input[type='checkbox'] { margin: 2px 3px; vertical-align: middle; }
+#EqnEditor .panel label { color: #4068AE; font-size: 13px; font-weight: normal; vertical-align: middle; }
+#EqnEditor .panel select {
+  font-family:"lucida grande", tahoma, verdana, arial, sans-sarif;
+  font-size:11px;
+  background-color:#fff;
+  border:1px solid #8FB6BD;
+  height:18px;
+}
+
+#toolbar_example { clear:left; }
+#intro { position:absolute; left:30px; color:#FF6600; font-size:16px; }
+
+/* ------- Button formating ------ */
+	
+#EqnEditor .bluebutton, #EqnEditor .lightbluebutton, #EqnEditor .greybutton {
+  border-style: solid;
+	border-width:1px;
+  border-top-color: #D9DFEA;
+  border-left-color: #D9DFEA;
+  border-bottom-color: #0e1f5b;
+  border-right-color: #0e1f5b;
+  color: #FFFFFF;
+  font-size: 12px;
+  text-align: center; 
+	cursor:pointer;
+	padding:1px 4px;
+	margin:0;
+}
+
+#EqnEditor .lightbluebutton { background-color:#4068AE; }
+#EqnEditor .bluebutton { background-color:#003794; }
+#EqnEditor .greybutton { background-color:#888888; }
+
+#EqnEditor .vertical-line{
+  width: 1px; /* Line width */
+  background-color: #d9d9d9; /* Line color */
+  height: 100%; /* Override in-line if you want specific height. */
+  float: right; /* Causes the line to float to left of content.
+    You can instead use position:absolute or display:inline-block
+    if this fits better with your design */
+}
