@@ -34,9 +34,7 @@ function replace (l) {
   var acos = new RegExp('acos\\('+number+'\\)','g');
   var atan = new RegExp('atan\\('+number+'\\)','g');
   var choice = new RegExp(/\[[^\]]+\]/g);
-  var mi = new RegExp(/<mi>!<\/mi>/g);
   var variable = [new RegExp(/!A/g), new RegExp(/!B/g), new RegExp(/!C/g), new RegExp(/!D/g), new RegExp(/!E/g), new RegExp(/!F/g), new RegExp(/!G/g), new RegExp(/!H/g), new RegExp(/!I/g), new RegExp(/!J/g), new RegExp(/!K/g), new RegExp(/!L/g), new RegExp(/!M/g), new RegExp(/!N/g), new RegExp(/!P/g), new RegExp(/!Q/g), new RegExp(/!R/g), new RegExp(/!S/g), new RegExp(/!T/g), new RegExp(/!U/g), new RegExp(/!V/g), new RegExp(/!W/g), new RegExp(/!X/g), new RegExp(/!Y/g), new RegExp(/!Z/g)]
-  while (mi.test(l)) l.match(mi).forEach(function(element) {l = l.replace(element,'!');}); //replace MathML
   variable.forEach(function(element) {
   var number = (min+(max-min)*Math.random()).toFixed(round);
   l=l.replace(element,number);

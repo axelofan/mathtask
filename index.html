@@ -11,7 +11,7 @@
 
     function send() {
 			console.log(editor.getMathML());
-			input = editor.getMathML();
+			input = editor.getMathML().split('\n');
 	    /*input=[];
         for (i=1;i<=50;i++){
 			if (document.getElementById('text'+i).value!='')
@@ -47,10 +47,10 @@
 		
 		<img src='download.png' style='width:40px' onclick='send()' alt='create'>
 		</div>
-<!--<div id='info'>
+	<div id='info'>
 	<iframe src="https://www.youtube.com/embed/j1F0kRKZNEQ" style='width:533px; height:300px; border:0'></iframe><br>
 	<a href='http://www.vk.com/axelofan' style='font-size:12px' target='_blank'>Alexey Cabanov</a>
-	</div>-->
+	</div>
 	<DIV id="output"></DIV>
 	<script>
 		var editor;
