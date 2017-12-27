@@ -52,7 +52,7 @@ generator = {
         while (asin.test(l)) l.match(asin).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace asin
         while (acos.test(l)) l.match(acos).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace acos
         while (atan.test(l)) l.match(atan).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace atan
-        while (math.test(l)) l.match(math).forEach((element) => {l = l.replace(new RegExp(/--/g),'+'); l = l.replace(new RegExp(/\+-/g),'-'); l = l.replace(element,this.roundPHP(eval(element),8)); });
+        while (math.test(l)) l.match(math).forEach((element) => {l = l.replace(new RegExp(/--/g),'+'); l = l.replace(new RegExp(/\+-/g),'-'); console.log(l); l = l.replace(element,this.roundPHP(eval(element),8)); });
         l = l.replace(new RegExp(/--/g),'+');
         l = l.replace(new RegExp(/\+-/g),'-');
         return l;
