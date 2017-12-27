@@ -42,6 +42,8 @@ generator = {
             var number = (this.min+(this.max-this.min)*Math.random()).toFixed(this.round);
             l=l.replace(element,number);
         });
+        l = l.replace(new RegExp(/--/g),'+');
+        l = l.replace(new RegExp(/\+-/g),'-');
         while (choice.test(l)) l.match(choice).forEach(function(element) {k=element.substr(1,element.length-2).split(';'); l=l.replace(element,k[Math.floor( Math.random()*k.length)]);});
         while (abs.test(l)) l.match(abs).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace abs
         while (pow.test(l)) l.match(pow).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace pow
@@ -52,8 +54,6 @@ generator = {
         while (asin.test(l)) l.match(asin).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace asin
         while (acos.test(l)) l.match(acos).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace acos
         while (atan.test(l)) l.match(atan).forEach(function(element) {l = l.replace(element,eval('Math.'+element));}); //replace atan
-        l = l.replace(new RegExp(/--/g),'+');
-        l = l.replace(new RegExp(/\+-/g),'-');
         while (math.test(l)) l.match(math).forEach((element) => {l = l.replace(element,this.roundPHP(eval(element),8)); });
         l = l.replace(new RegExp(/--/g),'+');
         l = l.replace(new RegExp(/\+-/g),'-');
