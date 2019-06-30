@@ -1,147 +1,64 @@
-@media print {
-  #settings, #background, #info{
-    display:none;
-  }
-  tr {
-    display: block;
-    page-break-inside: avoid;
-  }
-}
-@media (max-height:670px) {
-	#info {
-		display:none;
-	}
-}
 body {
-	width:100%;
-	height:100%;
-  background: url(background.svg) top center no-repeat fixed;
+  margin:0;
+  font-family: serif;
+  overflow-x: hidden;
 }
-#settings{
-  text-align:center;
-  font-family: sans-serif;
-  font-size:24px;
+.app {
+  width: 100vw;
+  height: 100vh;
+  display:grid;
+  grid-template-areas:
+  "header header"
+  "input preview"
+  "footer footer";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40px 1fr 40px
 }
-#settings div {
-  display:inline-block;
+.header {
+  grid-area: header;
+  background-color: #35383b;
+  border-bottom: solid 0.5px #1a1b1e;
 }
-#equationEditor div {
-  display: block;
-  margin-top: 10px;
+.input {
+  grid-area: input;
 }
-#info {
-	width:532px;
-	position:absolute;
-	bottom:10px;
-	left:50%;
-	margin-left:-266px;
-	text-align:center;
+.input textarea {
+  width: 100%;
+  height: 100%;
 }
-input[type='text'] {
-  width: 30px;
-  height:30px;
-  font-family:"Open Sans";
-  font-size: 18px;
-  border: solid 1px #dcdcdc;
-  transition: box-shadow 0.3s;
-  text-align: center;
+.preview {
+  grid-area: preview;
+  background-color: #ddd;
+  padding: 10px;
 }
-input[type="text"]:focus {
- box-shadow: 0 0 5px 1px #969696;
+.footer {
+  grid-area: footer;
+  background-color: #35383b;
+  border-top: solid 1px #1a1b1e;
 }
-table {
-  border-collapse: collapse;
-  padding: 0;
-  margin: 0 auto;
+
+.textField {
+  font-size: 16pt;
 }
-td {
-  border: 1px solid black;
-}
-p {
-  margin:2px 0;
-}
-#rnd {
-  position: relative;
-}
-#rnd label {
-  cursor: pointer;
+
+.print {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 7px;
+  top: 40px;
   left:0;
-  border-radius: 4px;
-  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-  background: linear-gradient(to top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+  width: 297mm;
+  grid-template-columns: repeat(5,1fr);
 }
-#rnd label:after {
-  opacity: 0;
-  content: '';
-  position: absolute;
-  width: 9px;
-  height: 5px;
-  background: transparent;
-  top: 4px;
-  left: 4px;
-  border: 3px solid #333;
-  border-top: none;
-  border-right: none;
-  transform: rotate(-45deg);
+
+.print div {
+  background-color: white;
+  border: 1px solid black;
+  box-sizing: border-box;
+  height: 105mm;
+  padding: 2mm;
 }
-#rnd label:hover::after {
-  opacity: 0.5;
-}
-#rnd input[type=checkbox]:checked + label:after {
-  opacity: 1;
-}
-#round {
-    height: 30px;
-    border: 0;
-    outline: 0;
-    font-family: "Open Sans";
-    font-size: 18px;
-    color: #4f4f4f;
-    padding: 0 4px;
-}
-#mainmenucontainer {
-	z-index:1;
-	position:relative;
-}
-#mainmenucontainer div {
-	display:none;
-}
-#mainmenucontainer:hover > div, #mainmenu > div  {
-	display:block;
-}
-#mainmenu > div:hover > div {
-	display:block;
-}
-#mainmenu {
-	width: 200px;
-    background: rgba(0,0,0,0.5);
-    position: absolute;
-    top: 40px;
-    left: -80px;
-	border-radius: 5px;
-}
-#mainmenu a {
-	font-size: 16px;
-	color: #efefef;
-	text-decoration: none;
-}
-#mainmenu div {
-	z-index:1;
-	position:relative;
-	width:100%;
-}
-#mainmenu div > div {
-	width: 250px;
-	background: rgba(0,0,0,0.5);
-	position: absolute;
-    top: 0;
-    left: 200px;
-	border-radius: 5px;
-}
-#mainmenu > div:hover > a {
-	color: #a1a1a1
+
+@media print {
+  .print {
+    top:0;
+  }
 }
