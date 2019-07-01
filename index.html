@@ -10,25 +10,44 @@
 <body>
 	<div class=app>
 		<div class=header>
-			<input type='number' id='minInput' placeholder='Min'>
-			<input type='number' id='maxInput' placeholder='Max'>
-			<input type='number' id='fixedInput' placeholder='Fixed'>
-			<input type='checkbox' id='shuffleButton' name='Shuffle'>
-			<label for="shuffle">Shuffle</label>
-			<button id='generate'>Generate</button>
+			<div>
+				<span>Значения</span>&nbsp;
+				<input type='number' id='minInput' placeholder='От'>&nbsp;
+				<input type='number' id='maxInput' placeholder='До'>&nbsp;
+				<input type='number' id='fixedInput' placeholder='Точность'>
+			</div>
+			<div>
+				<p style='text-align: center; margin:0;'>
+				<select id='formatChoice'>
+					<option value='3'>3 варианта на A4</option>
+					<option value='5'>5 вариантов на A4</option>
+					<option value='6'>6 вариантов на A4</option>
+					<option value='10'>10 вариантов на A4</option>
+				</select> &nbsp;
+				<button id='generate'>На печать</button> &nbsp;
+				<input type='checkbox' id='shuffleButton' name='Shuffle'><span>Перемешать</span> &nbsp; &nbsp; &nbsp;
+				</p>
+			</div>
 		</div>
 		<div class=input>
 			<textarea class='textField' id='inputContainer'></textarea>
 		</div>
-		<div class='preview textField'>
-			<div id='previewContainer'></div>
-		</div>
+		<div class='preview textField' id='previewContainer'></div>
 		<div class=footer></div>
 	</div>
 	<div class='print textField' style="display:none" id=printContainer></div>
 	<script>
 		inputContainer = document.getElementById('inputContainer');
 		previewContainer = document.getElementById('previewContainer');
+		printContainer = document.getElementById('printContainer');
+		minInput = document.getElementById('minInput');
+		maxInput = document.getElementById('maxInput');
+		fixedInput = document.getElementById('fixedInput');
+		shuffleButton = document.getElementById('shuffleButton');
+		generateButton = document.getElementById('generate');
+		formatChoice = document.getElementById('formatChoice');
+
+		variantHeight='210mm';
 		
 		getTask = function() {
 			if (inputContainer.value!='') {
@@ -47,11 +66,12 @@
 			MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 		}
 
-		printContainer = document.getElementById('printContainer');
+		
 		getPrint = function() {
 			printContainer.innerHTML='';
 			for (k=0;k<30;k++) {
 				div=document.createElement('div');
+				div.style.height=variantHeight;
 				task = getTask();
 				task.forEach(el => div.innerHTML+=el+'<br>');
 				printContainer.appendChild(div);
@@ -60,25 +80,33 @@
 		}
 
 		inputContainer.oninput = () => getPreview();
-		minInput = document.getElementById('minInput');
+		
 		minInput.onchange = () => {generator.min = parseInt(minInput.value); getPreview();}
-		maxInput = document.getElementById('maxInput');
+		
 		maxInput.onchange = () => {generator.max = parseInt(maxInput.value); getPreview();}
-		fixedInput = document.getElementById('fixedInput');
+		
 		fixedInput.onchange = () => {generator.round = parseInt(fixedInput.value); getPreview();}
-		shuffleButton = document.getElementById('shuffleButton');
+		
 		shuffleButton.onchange= () => {generator.shuffle=shuffleButton.checked; getPreview();}
-		generateButton = document.getElementById('generate');
+		
 		generateButton.onclick = () => {
 			if ((printContainer.style.display=='none') && (inputContainer.value!='')) {
 				getPrint();
 				printContainer.style.display='grid';
-				generateButton.innerText='Return';
+				generateButton.innerText='Вернуться';
 			}
 			else {
 				printContainer.style.display='none';
-				generateButton.innerText='Generate';
+				generateButton.innerText='На печать';
 			}
+		}
+		
+		formatChoice.onchange = () => {
+			option = formatChoice.options[formatChoice.selectedIndex].value;
+			if (option==3) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='210mm';}
+			else if (option==5) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='210mm';}
+			else if (option==6) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='105mm';}
+			else if(option==10) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='105mm';}
 		}
 	</script>
 </body>

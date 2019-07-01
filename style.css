@@ -1,6 +1,6 @@
 body {
   margin:0;
-  font-family: serif;
+  font-family: sans-serif;
   overflow-x: hidden;
 }
 .app {
@@ -15,9 +15,17 @@ body {
   grid-template-rows: 40px 1fr 40px
 }
 .header {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-area: header;
   background-color: #35383b;
   border-bottom: solid 0.5px #1a1b1e;
+  padding:9px;
+  color: #f0f0f0;
+}
+
+input[type=number] {
+  width: 70px;
 }
 .input {
   grid-area: input;
@@ -28,7 +36,7 @@ body {
 }
 .preview {
   grid-area: preview;
-  background-color: #ddd;
+  background-color: #f0f0f0;
   padding: 10px;
 }
 .footer {
@@ -38,27 +46,36 @@ body {
 }
 
 .textField {
-  font-size: 16pt;
+  font-size: 14pt;
 }
 
 .print {
   position: absolute;
   top: 40px;
   left:0;
-  width: 297mm;
-  grid-template-columns: repeat(5,1fr);
+  width:100%;
+  background-color: white;
+  grid-template-columns: repeat(3,1fr);
 }
 
 .print div {
+
   background-color: white;
   border: 1px solid black;
   box-sizing: border-box;
-  height: 105mm;
+  overflow: hidden;
   padding: 2mm;
 }
 
 @media print {
   .print {
+    width:297mm;
     top:0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    grid-template-columns: 1fr 1fr;
   }
 }
