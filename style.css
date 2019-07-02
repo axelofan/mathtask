@@ -3,6 +3,13 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
 }
+p {
+  text-align: center;
+  margin:0;
+}
+a {
+  color: white;
+}
 .app {
   width: 100vw;
   height: 100vh;
@@ -43,6 +50,7 @@ input[type=number] {
   grid-area: footer;
   background-color: #35383b;
   border-top: solid 1px #1a1b1e;
+  padding-top:9px;
 }
 
 .textField {
