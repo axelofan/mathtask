@@ -49,18 +49,20 @@ input[type=number] {
   font-size: 14pt;
 }
 
-.print {
+.printBackground {
   position: absolute;
   top: 40px;
-  left:0;
-  width:100%;
+  width: 100%;
   background-color: white;
+}
+.print {
+  margin:0 auto;
+  display: grid;
+  width:297mm;
   grid-template-columns: repeat(3,1fr);
 }
 
 .print div {
-
-  background-color: white;
   border: 1px solid black;
   box-sizing: border-box;
   overflow: hidden;
@@ -68,8 +70,7 @@ input[type=number] {
 }
 
 @media print {
-  .print {
-    width:297mm;
+  .printBackground {
     top:0;
   }
 }

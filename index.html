@@ -35,10 +35,13 @@
 		<div class='preview textField' id='previewContainer'></div>
 		<div class=footer></div>
 	</div>
-	<div class='print textField' style="display:none" id=printContainer></div>
+	<div class='printBackground textField' style="display:none" id=printBackground>
+	<div class='print' id=printContainer></div>
+	</div>
 	<script>
 		inputContainer = document.getElementById('inputContainer');
 		previewContainer = document.getElementById('previewContainer');
+		printBackground = document.getElementById('printBackground');
 		printContainer = document.getElementById('printContainer');
 		minInput = document.getElementById('minInput');
 		maxInput = document.getElementById('maxInput');
@@ -90,13 +93,13 @@
 		shuffleButton.onchange= () => {generator.shuffle=shuffleButton.checked; getPreview();}
 		
 		generateButton.onclick = () => {
-			if ((printContainer.style.display=='none') && (inputContainer.value!='')) {
+			if ((printBackground.style.display=='none') && (inputContainer.value!='')) {
 				getPrint();
-				printContainer.style.display='grid';
+				printBackground.style.display='block';
 				generateButton.innerText='Вернуться';
 			}
 			else {
-				printContainer.style.display='none';
+				printBackground.style.display='none';
 				generateButton.innerText='На печать';
 			}
 		}
