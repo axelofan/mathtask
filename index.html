@@ -30,7 +30,13 @@
 			</div>
 		</div>
 		<div class=input>
-			<textarea class='textField' id='inputContainer'></textarea>
+			<textarea class='textField' id='inputContainer'>
+!Ax+!B=0
+x^2-(!A+!B)x+(!A*!B)=0
+[sin;cos;tg]\frac{\pi}{[2;3;6]}=[3]
+\log_2 pow(2,!A)=
+\begin{cases}!Ax+!By=!C\\!Ax+!Dy=!E\end{cases}
+			</textarea>
 		</div>
 		<div class='preview textField' id='previewContainer'></div>
 		<div class=footer></div>
@@ -39,18 +45,18 @@
 	<div class='print' id=printContainer></div>
 	</div>
 	<script>
-		inputContainer = document.getElementById('inputContainer');
-		previewContainer = document.getElementById('previewContainer');
-		printBackground = document.getElementById('printBackground');
-		printContainer = document.getElementById('printContainer');
-		minInput = document.getElementById('minInput');
-		maxInput = document.getElementById('maxInput');
-		fixedInput = document.getElementById('fixedInput');
-		shuffleButton = document.getElementById('shuffleButton');
-		generateButton = document.getElementById('generate');
-		formatChoice = document.getElementById('formatChoice');
+		const inputContainer = document.getElementById('inputContainer');
+		const previewContainer = document.getElementById('previewContainer');
+		const printBackground = document.getElementById('printBackground');
+		const printContainer = document.getElementById('printContainer');
+		const minInput = document.getElementById('minInput');
+		const maxInput = document.getElementById('maxInput');
+		const fixedInput = document.getElementById('fixedInput');
+		const shuffleButton = document.getElementById('shuffleButton');
+		const generateButton = document.getElementById('generate');
+		const formatChoice = document.getElementById('formatChoice');
 
-		variantHeight='210mm';
+		let variantHeight='210mm';
 		
 		getTask = function() {
 			if (inputContainer.value!='') {
@@ -64,7 +70,7 @@
 		
 		getPreview = function () {
 			previewContainer.innerHTML='';
-			task = getTask();
+			let task = getTask();
 			task.forEach(el => previewContainer.innerHTML+=el+'<br>');
 			MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 		}
@@ -72,10 +78,10 @@
 		
 		getPrint = function() {
 			printContainer.innerHTML='';
-			for (k=0;k<30;k++) {
-				div=document.createElement('div');
+			for (let i=0;i<30;i++) {
+				let div=document.createElement('div');
 				div.style.height=variantHeight;
-				task = getTask();
+				let task = getTask();
 				task.forEach(el => div.innerHTML+=el+'<br>');
 				printContainer.appendChild(div);
 			}
@@ -105,12 +111,13 @@
 		}
 		
 		formatChoice.onchange = () => {
-			option = formatChoice.options[formatChoice.selectedIndex].value;
+			let option = formatChoice.options[formatChoice.selectedIndex].value;
 			if (option==3) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='210mm';}
 			else if (option==5) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='210mm';}
 			else if (option==6) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='105mm';}
 			else if(option==10) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='105mm';}
 		}
+		getPreview();
 	</script>
 </body>
 </html>
