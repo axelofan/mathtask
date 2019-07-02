@@ -28,15 +28,25 @@
 				<input type='checkbox' id='shuffleButton' name='Shuffle'><span>Перемешать</span> &nbsp; &nbsp; &nbsp;
 				</p>
 			</div>
+			<div class='example'> 
+				<p>
+					Примеры
+					<select id='exampleChoice'>
+						<option value='0'>Выберите пример</option>
+						<option value='1'>Линейные уравнения</option>
+						<option value='2'>Квадратные уравнения</option>
+						<option value='3'>Иррациональные уравнения</option>
+						<option value='4'>Показательные уравнения</option>
+						<option value='5'>Тригонометрические уравнения</option>
+						<option value='6'>Линейные неравенства</option>
+						<option value='7'>Рациональные неравенства</option>
+						<option value='8'>Формулы сокращённого умножения</option>
+					</select> &nbsp;
+				</p>
+			</div>
 		</div>
 		<div class=input>
-			<textarea class='textField' id='inputContainer'>
-!Ax+!B=0
-x^2-(!A+!B)x+(!A*!B)=0
-[sin;cos;tg]\frac{\pi}{[2;3;6]}=[3]
-\log_2 pow(2,!A)=
-\begin{cases}!Ax+!By=!C\\!Ax+!Dy=!E\end{cases}
-			</textarea>
+			<textarea class='textField' id='inputContainer'></textarea>
 		</div>
 		<div class='preview textField' id='previewContainer'></div>
 		<div class=footer><p><a href='https://vk.com/axelofan'>Автора!</a>&nbsp; &nbsp; &nbsp;<a href='https://github.com/axelofan/mathtask/blob/master/README.md'>Справка</a></p></div>
@@ -55,6 +65,7 @@ x^2-(!A+!B)x+(!A*!B)=0
 		const shuffleButton = document.getElementById('shuffleButton');
 		const generateButton = document.getElementById('generate');
 		const formatChoice = document.getElementById('formatChoice');
+		const exampleChoice = document.getElementById('exampleChoice');
 
 		let variantHeight='210mm';
 		
@@ -115,9 +126,22 @@ x^2-(!A+!B)x+(!A*!B)=0
 			if (option==3) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='210mm';}
 			else if (option==5) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='210mm';}
 			else if (option==6) {printContainer.style.gridTemplateColumns='repeat(3,1fr)'; variantHeight='105mm';}
-			else if(option==10) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='105mm';}
+			else if (option==10) {printContainer.style.gridTemplateColumns='repeat(5,1fr)'; variantHeight='105mm';}
 		}
-		getPreview();
+
+		exampleChoice.onchange = () => {
+			let option = exampleChoice.options[exampleChoice.selectedIndex].value;
+			console.log(option);
+			if (option==1) {inputContainer.value='!Ax+!B=0[5]\n!Ax+!B=!Cx+!D[5]'}
+			else if (option==2) {inputContainer.value='!Ax^2+!Bx=0[2]\nx^2-(!B*!B)=0[2]\n(x-!A)(x-!B)=0[2]\nx^2-(!A+!B)x+(!A*!B)=0[2]\n!Ax^2+!Bx+!C=0[2]'}
+			else if (option==3) {inputContainer.value='\\sqrt{!Ax+!B}=abs(!C)[2]\n\\sqrt{!Ax+!B}=\\sqrt{!Cx+!D}[2]\n\\sqrt{x^2-(!A+!B)x+(!A*!B)}=abs(!D)[2]'}
+			else if (option==4) {inputContainer.value='2^x=pow(2,!A)\n3^{!Ax+!B}=pow(3,!C)\n5^{x+!B}=[0,2;0,04;5;25;125;625]^!C'}
+			else if (option==5) {inputContainer.value='[sin;cos](x)=[0;\\frac{1}{2};\\frac{\\sqrt2}{2};\\frac{\\sqrt3}{2};1] [4]\nsin(x[+;-][\\frac{\\pi}{6};\\frac{\\pi}{4};\\frac{\\pi}{3}])=[0;1] [4]'}
+			else if (option==6) {inputContainer.value='!Ax+!B[>;<;≤;≥]0[5]\n!Ax+!B[>;<;≤;≥]!Cx+!D[5]'}
+			else if (option==7) {inputContainer.value='\frac{(x-!A)(x-!B)(x-!C)}{(x-!D)}[>;<;≤;≥]0[5]'}
+			else if (option==8) {inputContainer.value='(!Ax+!By)^2=\n(!Ax-!By)^2=\n(!Ax+!By)(!Ax-!By)=\n(!Ax+!By)^3=\n(!Ax-!By)^3='}
+			getPreview();
+		}
 	</script>
 </body>
 </html>
