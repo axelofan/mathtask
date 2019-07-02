@@ -25,7 +25,7 @@ generator = {
         var variable = [new RegExp(/!A/g), new RegExp(/!B/g), new RegExp(/!C/g), new RegExp(/!D/g), new RegExp(/!E/g), new RegExp(/!F/g), new RegExp(/!G/g), new RegExp(/!H/g), new RegExp(/!I/g), new RegExp(/!J/g), new RegExp(/!K/g), new RegExp(/!L/g), new RegExp(/!M/g), new RegExp(/!N/g), new RegExp(/!P/g), new RegExp(/!Q/g), new RegExp(/!R/g), new RegExp(/!S/g), new RegExp(/!T/g), new RegExp(/!U/g), new RegExp(/!V/g), new RegExp(/!W/g), new RegExp(/!X/g), new RegExp(/!Y/g), new RegExp(/!Z/g)]
         var functions = new RegExp('(?:(?:abs)|(?:pow)|(?:sqrt)|(?:sin)|(?:cos)|(?:tan))\\('+number+'\\)','g');
         var choice = new RegExp(/\[.+?\]/g);
-        while (choice.test(l)) l.match(choice).forEach(el => {k=el.substr(1,el.length-2).split(';'); l=l.replace(el,k[Math.floor( Math.random()*k.length)]);});
+        while (choice.test(l)) l.match(choice).forEach(el => {k1=el.substr(1,el.length-2).split(';'); l=l.replace(el,k1[Math.floor( Math.random()*k1.length)]);});
         variable.forEach(el => l=l.replace(el,this.getRandomNumber()));
         l = l.replace(new RegExp(/--/g),'+');
         l = l.replace(new RegExp(/\+-/g),'-');
