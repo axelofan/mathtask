@@ -87,7 +87,4 @@ input[type=number] {
   .header {
     grid-template-columns: 1fr 1fr;
   }
-  .example {
-    display:none;
-  }
 }
